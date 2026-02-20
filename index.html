@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Blow The Candles 🎂 Happy Birthday Lance Danniel</title>
+  <title>Blow The Candles 🎂 Happy Birthday Lance</title>
   <style>
     body {
       text-align: center;
@@ -42,8 +42,9 @@
 </head>
 <body>
 
+<h1>Happy 21st Birthday, Lanceyy 😘🥳🎉</h1>
 <h2>Click the cake to add candles 🎂</h2>
-<h3>Candles Left: <span id="candleCount">0</span></h3>
+<h3>Make a wish and vlow the candles!</h3>
 <p>Blow into your microphone to put them out 🎤🔥</p>
 
 <div class="cake"></div>
@@ -79,12 +80,14 @@ document.addEventListener("DOMContentLoaded", function () {
     updateCandleCount();
   }
 
-  cake.addEventListener("click", function (event) {
-    const rect = cake.getBoundingClientRect();
-    const left = event.clientX - rect.left;
-    const top = event.clientY - rect.top;
+function createInitialCandles() {
+  for (let i = 0; i < 21; i++) {
+    const left = 20 + (i % 7) * 50;
+    const top = 80 + Math.floor(i / 7) * 60;
     addCandle(left, top);
-  });
+  }
+}
+createInitialCandles();
 
   function isBlowing() {
     const bufferLength = analyser.frequencyBinCount;
